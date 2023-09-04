@@ -1,0 +1,34 @@
+.AdminPanel{
+    background-color: black;
+    color: aliceblue;
+   
+}
+
+.user-card{
+    border: 2px solid rgb(9, 9, 9);
+    text-align: center;
+    padding: 1rem;
+    background-color: aliceblue;
+    color: black;
+    border-radius: 1rem;
+}
+
+.userTable{
+    border-radius: 2rem;
+}
+
+.userDet{
+    background-color: aliceblue;
+    margin: 1rem 0rem;
+    padding: 1rem;
+    border-radius: 1rem;
+    color: black;
+    align-items: center;
+}
+.userDet p{
+    margin: 0;
+}
+
+.buttonBox{
+    display: flex;
+}

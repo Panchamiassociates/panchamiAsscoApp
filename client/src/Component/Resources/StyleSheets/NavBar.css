@@ -1,0 +1,24 @@
+.NavBar{
+    height: 2rem;    
+}
+.queryNumber {
+    background-color: red;
+    border-radius: 50%;
+    width: 2rem;
+    height: 2rem; /* Set width and height to the same value */
+    padding: 0.2rem;
+    text-align: center; /* Optional: Center the content horizontally and vertically */
+    font-weight: bold; /* Optional: Make the text bold */
+    color: white; /* Optional: Change the text color to white */
+    cursor: pointer;
+    margin: 0px 5px ;
+  }
+  
+
+  .query{
+    display: flex;
+  }
+  .query span{
+    justify-content: center;
+    align-items: center;
+  }

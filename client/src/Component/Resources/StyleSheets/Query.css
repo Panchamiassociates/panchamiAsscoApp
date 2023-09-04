@@ -1,0 +1,37 @@
+/* Query.css */
+
+.query-container {
+    border: 1px solid #ccc;
+    padding: 16px;
+    margin: 16px;
+    background-color: #fff;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  }
+  
+  .query-title {
+    font-size: 1.5rem;
+    font-weight: bold;
+    color: #333;
+  }
+  
+  .query-text {
+    font-size: 1rem;
+    color: #555;
+  }
+  /* Query.css */
+.query-container {
+    position: relative;
+    border: 1px solid #ccc;
+    padding: 20px;
+    margin: 10px;
+    background-color: #f9f9f9;
+  }
+  
+  .date-time.top-right {
+    position: absolute;
+    bottom: 10px;
+    right: 10px;
+    font-size: 14px;
+    color: #888;
+  }
+  

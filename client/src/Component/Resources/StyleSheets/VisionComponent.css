@@ -1,0 +1,52 @@
+.vision-container {
+    padding: 80px 0;
+    background-color: rgba(255, 255, 255, 0.818);
+    text-align: justify;
+    margin: 2rem 0rem;
+  }
+
+  
+  .vision-image {
+    padding: 0 15px;
+    width: 25rem;
+  
+
+  }
+
+  .vision-image img{
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.4);
+    border-radius: 2rem;
+  }
+
+  .vision-image img:hover{
+    box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.5);
+  }
+  
+  .vision-content {
+    padding: 0 15px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    border-left: 2px solid green;
+    padding-left: 2rem;
+
+}
+  
+  .vision-content h2 {
+    font-size: 28px;
+    font-weight: 700;
+    color: #333;
+    margin-bottom: 20px;
+  }
+  
+  .vision-content p {
+    font-size: 18px;
+    line-height: 1.6;
+    color: #666;
+  }
+  
+
+  .vision-title{
+    color: green!important;
+  }

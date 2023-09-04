@@ -1,0 +1,62 @@
+/* ChooseUs.css */
+.choose-us-section {
+  padding: 80px 0px;
+  background-color: #f9f9f9;
+  margin: 2rem 0rem;
+  width: 100%;
+  margin: auto;
+}
+
+.choose-us-title {
+  font-size: 32px;
+  font-weight: 900;
+  color: #252525;
+  margin-bottom: 40px;
+  text-align: left;
+  border-left: 8px solid green;
+  margin-left: 2rem;
+}
+
+.cont {
+  padding: 1rem;
+}
+
+.feature-box {
+  background-color: #ffffff;
+  border: 1px solid #ddd;
+  padding: 30px;
+  margin-bottom: 30px;
+  text-align: center;
+  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s, box-shadow 0.3s;
+  height: 100%; /* Ensure the height covers the content */
+  border-radius: 1rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  
+}
+
+.feature-box:hover {
+  transform: translateY(-5px);
+  box-shadow: 0px 5px 15px rgba(0, 0, 0, 0.4);
+}
+
+.feature-icon {
+  font-size: 36px;
+  color: #28a745;
+  margin-bottom: 20px;
+}
+
+.feature-title {
+  font-size: 24px;
+  font-weight: 600;
+  color: #333;
+  margin-bottom: 10px; /* Reduce margin for better spacing */
+}
+
+.feature-description {
+  font-size: 16px;
+  color: #666;
+  margin-bottom: 10px; /* Reduce margin for better spacing */
+}
