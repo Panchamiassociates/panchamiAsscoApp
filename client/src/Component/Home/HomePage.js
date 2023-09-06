@@ -30,7 +30,7 @@ function HomePage() {
         <h4 className='w-75'>{typedText}</h4>
       </div>
       <div className='col-lg-6 Intro'>
-        <img src={require('../Resources/Images/Home.png')} className='Intro-img' alt='' />
+        <img src={require('../Resources/Images/e3.png')} className='Intro-img' alt='' />
       </div>
     </div>
   </div>

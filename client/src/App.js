@@ -8,6 +8,9 @@ import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import AdminPanel from './Component/AdminPanel/AdminPanel';
 import ContactForm from './Component/ContactUs/ContactForm';
 import Queries from './Component/ContactUs/Queries';
+import Project_upload from './Component/Project_upload';
+import ImageGallery from './Component/ImageGallery';
+import ProjectList from './Component/ProjectList';
 
 function App() {
   const [auth, setAuth] = useState(false);
@@ -34,6 +37,8 @@ function App() {
           <Route path="/Admin-Panel" element={<AdminPanel adminAuth={auth} />} />
           <Route path="/Contact-us" element={<ContactForm />} />
           <Route path="/Queries" element={<Queries setNumber={setNumber}  adminAuth={auth}/>} />
+          <Route path="/Project_add" element={<Project_upload />} />
+          <Route path="/Project_images" element={<ProjectList />} />
         </Routes>
       </>
     </Router>
