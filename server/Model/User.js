@@ -1,11 +1,10 @@
-const mongoose = require('mongoose');
-const bcrypt = require('bcrypt');
+const mongoose = require("mongoose");
+const bcrypt = require("bcrypt");
 
 const UserSchema = new mongoose.Schema({
     username: {
         type: String,
-        required: true,
-        unique: true
+        required: true
     },
     email: {
         type: String,
@@ -16,45 +15,37 @@ const UserSchema = new mongoose.Schema({
         type: String,
         required: true
     },
-    isActive: {
-        type: Boolean,
-        default: false
-    },
-    PhoneNumber: {
+    phoneNumber: {
         type: Number,
-        required:true,
-        unique : true
+        required: true,
+        unique: true
     },
-    dateRegistered : {
-        type: Date,
-        default : Date.now()
+    Role: {
+        type: String,
+        default: "USER"
+    },
+    isActive : {
+        type : Boolean,
+        default : false
     }
 });
 
-// Hash the password before saving
-UserSchema.pre('save', async function (next) {
-    const user = this;
-    if (!user.isModified('password')) return next();
+// Middleware to hash the password before saving
+UserSchema.pre("save", async function (next) {
+    if (!this.isModified("password")) {
+        return next();
+    }
 
     try {
-        const saltRounds = 10;
-        const hashedPassword = await bcrypt.hash(user.password, saltRounds);
-        user.password = hashedPassword;
+        const saltRounds = 10; // You can adjust the number of salt rounds as needed
+        const hashedPassword = await bcrypt.hash(this.password, saltRounds);
+        this.password = hashedPassword;
         next();
     } catch (error) {
-        return next(error);
+        next(error);
     }
 });
 
-// Method to compare entered password with stored password hash
-UserSchema.methods.comparePassword = async function (enteredPassword) {
-    try {
-        return await bcrypt.compare(enteredPassword, this.password);
-    } catch (error) {
-        throw error;
-    }
-};
+const UserModel = mongoose.model("User", UserSchema);
 
-const User = mongoose.model('User', UserSchema);
-
-module.exports = User;
+module.exports = UserModel;
