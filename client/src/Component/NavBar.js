@@ -29,13 +29,16 @@ function NavBar({authentication}) {
           <Link className="nav-link text-light" to="/Services">Service</Link>
         </li>
         <li className="nav-item">
-          <Link className="nav-link text-light" to="/About-us">About Us</Link>
-        </li>
-        <li className="nav-item">
           <Link className="nav-link text-light" to="/Contact-us">Contact us</Link>
         </li>
         <li className="nav-item">
           <Link className="nav-link text-light" to="/Admin-panel">Admin-panel</Link>
+        </li>
+        <li className="nav-item">
+          <Link className="nav-link text-light" to="/Query-panel">Query-panel</Link>
+        </li>
+        <li className="nav-item">
+          <Link className="nav-link text-light" to="/Query-panel">Testimonial</Link>
         </li>
       </ul>
       <button type="button" className="btn btn-outline-success mx-1" data-bs-toggle="modal" data-bs-target="#admin">

@@ -2,8 +2,6 @@ import React, { useState } from 'react';
 import '../Resources/StyleSheets/UserLogin.css';
 import axios from 'axios';
 
-import 'react-toastify/dist/ReactToastify.css';
-
 function AdminLogin({authentication}) {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
@@ -18,9 +16,7 @@ function AdminLogin({authentication}) {
         alert("successfully logged in")
         if(response.data.role  === "ADMIN"){
         authentication("ADMIN");
-        localStorage.setItem("role", "ADMIN");
         }
-        localStorage.setItem("role" , "USER")
         console.log(response.data.role)
       }
       else{
