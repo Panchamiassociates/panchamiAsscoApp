@@ -1,34 +1,86 @@
-.AdminPanel{
-    background-color: black;
-    color: aliceblue;
-   
-}
-
-.user-card{
-    border: 2px solid rgb(9, 9, 9);
-    text-align: center;
-    padding: 1rem;
-    background-color: aliceblue;
-    color: black;
-    border-radius: 1rem;
-}
-
-.userTable{
-    border-radius: 2rem;
-}
-
-.userDet{
-    background-color: aliceblue;
-    margin: 1rem 0rem;
-    padding: 1rem;
-    border-radius: 1rem;
-    color: black;
-    align-items: center;
-}
-.userDet p{
-    margin: 0;
-}
-
-.buttonBox{
+/* AdminPanel component styles */
+.Dashboard {
     display: flex;
-}
+    flex-wrap: wrap; /* Allow items to wrap to the next line if needed */
+  }
+  
+  .UserList {
+    flex: 1; /* Take up equal width */
+    max-width: 50%; /* Maximum width for the left panel */
+    box-sizing: border-box; /* Include padding in the width calculation */
+    border: 1px solid grey;
+    margin: 0rem;
+    display: flex;
+    justify-content: top;
+    flex-direction: column;
+    border: 1px solid rgba(0, 0, 0, 0.2);
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    background-color: rgb(229, 228, 228);
+  }
+  
+  .pending {
+    flex: 1; /* Take up equal width */
+    max-width: 50%; /* Maximum width for the right panel */
+    display: flex;
+    flex-direction: column;
+    padding: 0%!important;
+  }
+  
+  /* Users component styles */
+  .Users {
+    display: flex;
+    flex-wrap: wrap; /* Allow items to wrap to the next line if needed */
+    gap: 20px; /* Add some spacing between Users components */
+    background-color: #ffffff;
+    border: 1px solid rgba(0, 0, 0, 0.2);
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    padding: 1rem;
+    border-radius: 5px;
+    width: 100%;
+    margin: 1rem 0.2rem;
+    align-items: center;
+    justify-content: space-around;
+  }
+  
+  .Users p {
+    margin: 0rem }
+  
+  .active {
+    color: green;
+  }
+  
+  .inactive {
+    color: red;
+  }
+  
+  .Pending-user {
+    display: flex;
+    margin: 0rem;
+    flex-direction: column;
+    height: 20rem;
+    max-height: 100%; /* Prevent the component from exceeding its parent's height */
+    overflow: auto; /* Use "auto" to show scrollbars only when content overflows */
+    border: 1px solid rgba(0, 0, 0, 0.2);
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    padding: 1rem;
+    margin: 1rem;
+    border-radius: 5px;
+    align-items: center;
+    justify-content: center;
+  }
+  
+  .Pending-user::-webkit-scrollbar {
+    width: 0; /* Width of the scrollbar */
+  }
+  
+  .Pending-user::-webkit-scrollbar-thumb {
+    background-color: #de1717; /* Color of the scrollbar thumb */
+    display: none;
+  }
+
+  
+  .empty {
+    text-align: center;
+    font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+  }
+  

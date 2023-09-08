@@ -1,16 +1,13 @@
 const express = require('express');
 const app = express();
 const mongoose = require('mongoose');
-const multer = require('multer');
-
-
 app.use(express.json())
 const cors = require('cors');
 
 app.use(cors());
 
 mongoose.connection.collection('contacts').createIndex({ date: 1 }, { expireAfterSeconds: 0 });
-const url = "mongodb+srv://panchamiassociates2022:7WyGxojmzVZREFXn@panchamiassociates.obhbdun.mongodb.net/test?retryWrites=true&w=majority";
+const url = "mongodb+srv://Panchami:f8BkwZCBSH5LxSVl@cluster0.lc47tlw.mongodb.net/?retryWrites=true&w=majority";
 
 mongoose.connect(url, { useNewUrlParser: true, useUnifiedTopology: true })
     .then(() => {
@@ -19,18 +16,6 @@ mongoose.connect(url, { useNewUrlParser: true, useUnifiedTopology: true })
     .catch((err) => {
         console.log("Cannot connect to the database: " + err);
     });
-
-//project C-R-D
-
-// const AddProject = require('./Router/Projects/AddProject');
-// const DeleteProject = require('./Router/Projects/DeleteProject');
-// const GetProject = require('./Router/Projects/GetProject');
-
-// app.get('/api/v1/get-project' , GetProject)
-// app.delete('/api/v1/delete-project/:project_id', DeleteProject);
-// app.post('/api/v1/add-project', AddProject);
-// 
-
 //authentication
 
 const Login = require("./Router/UserRoutes/Login");
@@ -45,76 +30,87 @@ app.post('/api/v1/login', Login);
 app.patch('/api/v1/user/:id' , UpdateStatus);
 app.delete('/api/v1/user/:id', DeleteUser)
 
+//uploading image
 
-//add - project
+const admin = require('firebase-admin');
+const serviceAccount = require('./panchami-8e012-firebase-adminsdk-8ej16-9e0e358bb3.json'); // Provide the correct path to your service account key JSON file
 
-const imageSchema = new mongoose.Schema({
-    data: String, // Base64 data
-  });
-
-  const ProjectSchema = new mongoose.Schema({
-    title : {
-        type : String,
-        require: true
-    },
-    description : {
-        type: String,
-        require : true
-    },
-    image : {
-        type: String,
-        require: true
-    }
-  })
-  
-  const Image = mongoose.model('Image', imageSchema);
+// admin.initializeApp({
+//   credential: admin.credential.cert(serviceAccount),
+//   // Your Firebase configuration options
+// });
+const multer = require('multer');
 
 
-  // Set up Multer for file uploads
-  const storage = multer.memoryStorage();
-  const upload = multer({ storage: storage });
-  
-  // Upload an image and convert to base64
-  // Define your Project model and schema
-const Project = mongoose.model('Project', ProjectSchema);
-
-// Create an endpoint for uploading projects with images
-app.post('/upload-project', upload.single('image'), (req, res) => {
-  if (!req.file) {
-    return res.status(400).send('No file uploaded.');
-  }
-
-  const base64data = req.file.buffer.toString('base64');
-
-  // Save the base64 data to MongoDB for the Project model
-  const newProject = new Project({
-    title: req.body.title,
-    description: req.body.description,
-    image: base64data,
-  });
-
-  newProject
-    .save()
-    .then(() => res.send('Project uploaded and saved to MongoDB.'))
-    .catch((err) => res.status(500).send(err));
+admin.initializeApp({
+  credential: admin.credential.cert(serviceAccount),
+  // Your Firebase configuration options
 });
 
-  // Modify your server.js or create a new route
-// Modify your /api/images route to use promises
-// Create a new endpoint to fetch project data
-app.get('/projects', (req, res) => {
-    Project.find({})
-      .then((projects) => {
-        res.json(projects);
-      })
-      .catch((err) => {
-        console.error('Error fetching projects:', err);
-        res.status(500).send('Error fetching projects from the database.');
-      });
-  });
-  
-  
+const storage = multer.memoryStorage();
+const upload = multer({ storage: storage });
 
-  app.listen(3001, () => {
-    console.log("Server running at port 3000");
+const Images = mongoose.model('Image', {
+  imageUrl: String,
+  title: String,
+  description: String,
+  // Add other fields as needed
+});
+
+app.post('/upload-image', upload.single('image'), async (req, res) => {
+  try {
+    if (!req.file || !req.body.title || !req.body.description) {
+      return res.status(400).json({ error: 'Please provide an image, title, and description.' });
+    }
+
+    const bucket = admin.storage().bucket('gs://panchami-8e012.appspot.com');
+    const uniqueFilename = `Projects/${Date.now()}_${req.file.originalname}`;
+    const file = bucket.file(uniqueFilename);
+
+    // Upload the image to Firebase Cloud Storage
+    await file.createWriteStream().end(req.file.buffer);
+
+    // Get the public URL of the uploaded image
+    const [publicUrl] = await file.getSignedUrl({
+      action: 'read',
+      expires: '01-01-2100', // Set an appropriate expiration date
+    });
+
+    // Store the image URL, title, and description in MongoDB
+    const image = new Images({
+      imageUrl: publicUrl,
+      title: req.body.title,
+      description: req.body.description,
+      // Add other fields as needed
+    });
+
+    await image.save();
+
+    res.json({ imageUrl: publicUrl });
+  } catch (error) {
+    console.error('Error uploading image:', error);
+    res.status(500).json({ error: 'An error occurred while uploading the image.' });
+  }
+});
+
+
+// Add a new route to fetch projects
+app.get('/projects', async (req, res) => {
+  try {
+    const projects = await Images.find(); // Assuming Image is your Mongoose model
+    res.status(200).json({ message: "Data fetched successfully", data: projects });
+  } catch (error) {
+    console.error('Error fetching projects:', error);
+    res.status(500).json({ message: "Unable to fetch data" });
+  }
+});
+
+
+
+
+
+
+// Start your Express.js server
+app.listen(3001, () => {
+  console.log('Server is running on port 3001');
 });

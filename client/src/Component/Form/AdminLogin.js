@@ -4,7 +4,7 @@ import axios from 'axios';
 
 import 'react-toastify/dist/ReactToastify.css';
 
-function AdminLogin({authFunction}) {
+function AdminLogin({authentication}) {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [showToast, setShowToast] = useState(false); // State for showing the toast
@@ -13,18 +13,21 @@ function AdminLogin({authFunction}) {
     e.preventDefault();
 
     try {
-      const response = await axios.post('http://localhost:3001/api/v1/admin-login', { email, password });
+      const response = await axios.post('http://localhost:3001/api/v1/login ', { email, password });
       if (response.status  ===200) {
         alert("successfully logged in")
-        authFunction(true);
+        if(response.data.role  === "ADMIN"){
+        authentication("ADMIN");
+        localStorage.setItem("role", "ADMIN");
+        }
+        localStorage.setItem("role" , "USER")
+        console.log(response.data.role)
       }
       else{
         alert("wrong password")
-        authFunction(false)
       }
     } catch (error) {
       alert("wrong credentials");
-      authFunction(false)
     }
   };
 

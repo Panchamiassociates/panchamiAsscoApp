@@ -4,7 +4,7 @@ import '../Resources/StyleSheets/Home.css';
 function HomePage() {
     
     const [typedText, setTypedText] = useState('');
-    const welcomeMessage = "Weelcome to Panchami Associates: Your Trusted Partner in Real Estate and Property Solutions";
+    const welcomeMessage = "WEELCOME TO PANCHAMI ASSOCIATION:  CRAFTING THE BLUEPRINT OF EXCELLENCE IN CIVIL CONSTRUCTION";
     const typingSpeed = 75 ; // Adjust typing speed as needed
   
     useEffect(() => {
@@ -27,7 +27,7 @@ function HomePage() {
   <div className='container'>
     <div className='row intro-row'>
       <div className='col-lg-6 Intro'>
-        <h4 className='w-75'>{typedText}</h4>
+        <h4 className='w-100 WORDS'>{typedText}</h4>
       </div>
       <div className='col-lg-6 Intro'>
         <img src={require('../Resources/Images/e3.png')} className='Intro-img' alt='' />

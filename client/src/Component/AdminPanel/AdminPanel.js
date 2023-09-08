@@ -1,24 +1,28 @@
 import React from 'react';
+import Users from './Users';
+import PendingUser from './PendingUser';
+import ProjectUpload from '../Project/Project_upload';
 import '../Resources/StyleSheets/AdminPanel.css';
-import UserTable from './UserTable';
-import UserList from './UserList';
 
-function AdminPanel({ adminAuth }) {
+function AdminPanel({auth}) {
+  console.log("role: " +   auth);
   return (
-    <div className='AdminPanel'>
-      {adminAuth ? (
-        <div className=' p-5 row'>
-          <div className='col-lg-6 col-md-12 '>
-            <UserList />
-          </div>
-          <div className='col-lg-6 col-md-12 p-3 text-center'>
-            <UserTable />
-          </div>
+    <>{ auth  === "ADMIN"?
+    <div className="Dashboard row justify-content-between">
+      <div className="UserList col-lg-6">
+        <Users />
+      </div>
+      <div className="pending col-lg-6">
+        <div className="PendingUser">
+          <PendingUser />
         </div>
-      ) : (
-        <h4 className='error'>You must login as admin to view this page</h4>
-      )}
-    </div>
+        <div className="ProjectUpload">
+          <ProjectUpload />
+        </div>
+      </div>
+    </div> : <h3>You need admin privilages to access this page</h3>}
+    </>
+    
   );
 }
 
