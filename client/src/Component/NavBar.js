@@ -26,7 +26,7 @@ function NavBar({authentication}) {
         </li>
 
         <li className="nav-item">
-          <Link className="nav-link text-light" to="/Services">Service</Link>
+          <Link className="nav-link text-light" to="/Services">Services</Link>
         </li>
         <li className="nav-item">
           <Link className="nav-link text-light" to="/Contact-us">Contact us</Link>
