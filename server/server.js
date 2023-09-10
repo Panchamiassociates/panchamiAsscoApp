@@ -22,7 +22,7 @@ mongoose.connect(url, { useNewUrlParser: true, useUnifiedTopology: true })
 //authentication
 
 app.get('/', (req,res)=>{
-  res.send("everything works perfectly!!")
+  res.send("everything works perfectly!!!")
 })
 
 const UpdateStatus = require("./Router/UserRoutes/UpdateStatus");
