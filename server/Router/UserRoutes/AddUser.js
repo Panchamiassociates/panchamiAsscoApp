@@ -6,7 +6,7 @@ module.exports = async (req, res) => {
     const newUser = await UserModel.create(req.body);
 
     // Attempt to save the new user
-    await newUser.save();
+    await newUser.save(); // Await the save method
 
     // If successful, send a success response
     res.status(200).json({

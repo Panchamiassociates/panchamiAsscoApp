@@ -1,7 +1,7 @@
 import React from 'react';
 import Users from './Users';
 import PendingUser from './PendingUser';
-import ProjectUpload from '../Project/Project_upload';
+import ProjectUpload from '../Project/ProjectUpload';
 import '../Resources/StyleSheets/AdminPanel.css';
 
 function AdminPanel({auth}) {

@@ -1,24 +1,25 @@
-const UserModel = require('../../Model/User');
-const bcrypt = require('bcrypt');
+const UserModel = require('../../Model/User')
+const bcrypt = require('bcrypt')
 
-module.exports = async (req, res) => {
+module.exports = Login = async (req, res) => {
     const { email, password } = req.body;
     try {
         const user = await UserModel.findOne({ email });
-
+  
         if (!user) {
             return res.status(300).json({
                 message: "User not found",
             });
         }
-
+  
         // Assuming you have hashed passwords stored in the user model
         const passwordMatch = await bcrypt.compare(password, user.password);
-
+  
         if (passwordMatch) {
             return res.status(200).json({
                 message: "User logged in successfully",
-                role: user.Role // Assuming your user model has a 'role' property
+                role: user.Role, // Assuming your user model has a 'role' property
+                status : user.isActive
             });
         } else {
             return res.status(200).json({
@@ -31,4 +32,4 @@ module.exports = async (req, res) => {
             message: "Internal server error",
         });
     }
-};
+  }

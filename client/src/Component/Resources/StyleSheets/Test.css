@@ -1,0 +1,252 @@
+/* Style for the testimonial list container */
+.testimonial-list {
+  text-align: center;
+  padding: 20px;
+  margin: 1rem;
+}
+
+.testimonial-list h2 {
+  font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+  border-left: 0.5rem rgb(212, 177, 3) solid;
+  text-align: left;
+  margin:1rem;
+  padding: 2rem;
+}
+.Ongoing-projects{
+  border-left: 0.5rem rgb(0, 255, 4) solid;
+  text-align: left;
+  padding: 1rem;
+}
+/* Style for the testimonial set within the carousel */
+.testimonial-set {
+  display: flex;
+  flex-wrap: wrap; /* Allow items to wrap to the next line if needed */
+  justify-content: space-between; /* Distribute items evenly */
+  gap: 20px; /* Add spacing between items */
+}
+
+/* Style for individual testimonial cards */
+.test-item {
+  background: linear-gradient( rgb(255, 255, 255), rgb(217, 255, 217), rgb(198, 255, 198), rgb(154, 255, 154), rgb(144, 255, 144), rgb(101, 255, 101),rgb(2, 255, 48));
+  border: 1px solid green;
+  color: #000000;
+  padding: 20px;
+  text-align: left;
+  border-radius: 2rem;
+  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.2);
+  width: calc(30% - 20px);
+  min-width: 280px; /* Minimum width to prevent cards from becoming too small */
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  margin: 1rem 0;
+  height: 10rem!important;
+}
+
+.test-item:hover {
+  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.5);
+}
+
+/* Style for testimonial titles */
+.test-item h3 {
+  font-size: 18px;
+  margin-bottom: 10px;
+}
+
+/* Style for testimonial descriptions */
+.test-item p {
+  font-size: 14px;
+}
+
+/* Style for testimonial images */
+.img_proj {
+  height: 15rem;
+  width: 100%;
+  border-radius: 1rem;
+}
+
+.loading-skeletons {
+  display: flex;
+  flex-wrap: wrap; /* Allow skeletons to wrap to the next line if needed */
+  justify-content: space-between; /* Distribute skeletons evenly */
+  gap: 20px; /* Add spacing between skeletons */
+}
+
+/* testimonialUpload.css */
+.upload-container {
+  margin: 1rem;
+  padding: 3rem;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  background-color: #fff;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.upload-container h1 {
+  font-size: 24px;
+  margin-bottom: 20px;
+}
+
+.upload-container input[type="file"] {
+  margin-bottom: 10px;
+}
+
+.upload-container input[type="text"],
+.upload-container textarea {
+  width: 100%;
+  padding: 10px;
+  margin-bottom: 10px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+}
+
+.upload-container button {
+  display: block;
+  width: 100%;
+  padding: 10px;
+  background-color: #007bff;
+  color: #fff;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.upload-container button:hover {
+  background-color: #0056b3;
+}
+
+
+.test-item{
+  height: 25rem;
+  width: 20rem;
+  margin: 1rem auto;
+}
+
+
+
+/* TestimonialForm.css */
+
+.testimonial-form-container {
+  background-color: #f9f9f9;
+  padding: 20px;
+  border-radius: 5px;
+  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.2);
+  margin-top: 10%;
+}
+
+.testimonial-form {
+  margin-top: 2rem;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.form-group {
+  display: flex;
+  flex-direction: column;
+}
+
+label {
+  font-weight: bold;
+  margin-bottom: 5px;
+}
+
+textarea,
+input {
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 3px;
+  font-size: 16px;
+  outline: none;
+}
+
+.submit-button {
+  background-color: #007bff;
+  color: #fff;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 3px;
+  cursor: pointer;
+  font-size: 18px;
+}
+
+.submit-button:hover {
+  background-color: #0056b3;
+}
+
+/* TestimonialForm.css */
+
+.testimonial-form {
+  max-width: 400px;
+  margin: 0 auto;
+  padding: 20px;
+  background-color: #f9f9f9;
+  border-radius: 5px;
+  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.2);
+}
+
+.testimonial-form h2 {
+  font-size: 24px;
+  color: #333;
+  margin-bottom: 20px;
+  text-align: center;
+}
+
+.form-group {
+  margin-bottom: 15px;
+}
+
+.form-group label {
+  display: block;
+  font-size: 16px;
+  color: #333;
+  margin-bottom: 5px;
+}
+
+textarea,
+input[type="text"] {
+  width: 100%;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 3px;
+  font-size: 16px;
+  outline: none;
+}
+
+textarea {
+  height: 100px;
+  resize: none;
+}
+
+button[type="submit"] {
+  background-color: #007bff;
+  color: #fff;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 3px;
+  font-size: 18px;
+  cursor: pointer;
+  width: 100%;
+  transition: background-color 0.3s;
+}
+
+button[type="submit"]:hover {
+  background-color: #0056b3;
+}
+
+
+.error {
+  position: relative; /* Use relative positioning on the container */
+  width: 100%; /* Set a width for the container if needed */
+  height: 100vh; /* Set a height for the container if needed */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.error-img {
+  max-width: 100%; /* Ensure the image doesn't exceed its container */
+  max-height: 100%; /* Ensure the image doesn't exceed its container */
+  padding: 2rem;
+}

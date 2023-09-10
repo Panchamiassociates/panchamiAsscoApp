@@ -3,8 +3,11 @@ const app = express();
 const mongoose = require('mongoose');
 app.use(express.json())
 const cors = require('cors');
-
 app.use(cors());
+const bodyparser = require("body-parser")
+
+app.use(bodyparser())
+
 
 mongoose.connection.collection('contacts').createIndex({ date: 1 }, { expireAfterSeconds: 0 });
 const url = "mongodb+srv://Panchami:f8BkwZCBSH5LxSVl@cluster0.lc47tlw.mongodb.net/?retryWrites=true&w=majority";
@@ -18,7 +21,8 @@ mongoose.connect(url, { useNewUrlParser: true, useUnifiedTopology: true })
     });
 //authentication
 
-const Login = require("./Router/UserRoutes/Login");
+
+
 const UpdateStatus = require("./Router/UserRoutes/UpdateStatus");
 const DeleteUser = require("./Router/UserRoutes/DeleteUser");
 const GetUser = require('./Router/UserRoutes/GetUser');
@@ -26,20 +30,21 @@ const AddUser = require('./Router/UserRoutes/AddUser');
 
 app.get('/api/v1/user' , GetUser);
 app.post('/api/v1/user' , AddUser);
-app.post('/api/v1/login', Login);
 app.patch('/api/v1/user/:id' , UpdateStatus);
 app.delete('/api/v1/user/:id', DeleteUser)
+
+
+const Login = require('./Router/UserRoutes/Login');
+app.post('/api/v1/login', Login)
+
 
 //uploading image
 
 const admin = require('firebase-admin');
 const serviceAccount = require('./panchami-8e012-firebase-adminsdk-8ej16-9e0e358bb3.json'); // Provide the correct path to your service account key JSON file
 
-// admin.initializeApp({
-//   credential: admin.credential.cert(serviceAccount),
-//   // Your Firebase configuration options
-// });
 const multer = require('multer');
+
 
 
 admin.initializeApp({
@@ -107,8 +112,27 @@ app.get('/projects', async (req, res) => {
 
 
 
+// Query
+const GetQuery = require('./Router/Query/GetQuery')
+const PostQuery = require('./Router/Query/PostQuery');
+const DeleteQuery = require('./Router/Query/DeleteQuery');
+
+app.get('/api/v1/queries',GetQuery );
+app.post('/api/v1/queries', PostQuery );
+app.delete('/api/v1/queries/:id', DeleteQuery);
 
 
+
+//testimonial 
+const GetTestimonials = require('./Router/Testimonials/GetTestimonials');
+const AddTestimonials = require('./Router/Testimonials/AddTestimonials');
+const DeleteTestimonials = require('./Router/Testimonials/DeleteTestimonials');
+
+
+
+app.get('/api/v1/testimonial', GetTestimonials );
+app.post('/api/v1/testimonial', AddTestimonials);
+app.delete('/api/v1/testimonial/:id', DeleteTestimonials);
 
 // Start your Express.js server
 app.listen(3001, () => {

@@ -1,37 +1,26 @@
-/* Query.css */
+.query{
+  display: flex;
+  flex-direction: column;
+  border: 1px solid rgb(208, 208, 208);
+  margin: 1rem;
+  padding: 1rem;
+  border-radius: 1rem;
+  width: 25rem;
+  height: 18rem;
+  box-shadow: 0px 0px 10px rgb(162, 162, 162) ;
+  position: relative;
+}
 
-.query-container {
-    border: 1px solid #ccc;
-    padding: 16px;
-    margin: 16px;
-    background-color: #fff;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-  }
-  
-  .query-title {
-    font-size: 1.5rem;
-    font-weight: bold;
-    color: #333;
-  }
-  
-  .query-text {
-    font-size: 1rem;
-    color: #555;
-  }
-  /* Query.css */
-.query-container {
-    position: relative;
-    border: 1px solid #ccc;
-    padding: 20px;
-    margin: 10px;
-    background-color: #f9f9f9;
-  }
-  
-  .date-time.top-right {
-    position: absolute;
-    bottom: 10px;
-    right: 10px;
-    font-size: 14px;
-    color: #888;
-  }
-  
+.query-delete{
+  position: absolute;
+  bottom: 1rem;
+  right: 1rem;
+}
+
+
+.query-page{
+  margin: 1rem;
+  display: flex;
+  flex-wrap:wrap;
+  justify-content: space-around;
+}

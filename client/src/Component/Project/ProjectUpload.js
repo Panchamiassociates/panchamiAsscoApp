@@ -2,11 +2,10 @@ import React, { useState } from 'react';
 import axios from 'axios';
 import '../Resources/StyleSheets/Projects.css'
 
-function Project_upload() {
+function ProjectUpload() {
   const [file, setFile] = useState(null);
   const [title, setTitle] = useState('');
   const [description, setDescription] = useState('');
-  const [len , setlen] = useState(0);
 
   const handleFileChange = (e) => {
     setFile(e.target.files[0]);
@@ -59,4 +58,4 @@ function Project_upload() {
   
 }
 
-export default Project_upload;
+export default ProjectUpload;

@@ -7,31 +7,51 @@ import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import AdminPanel from './Component/AdminPanel/AdminPanel';
 import ContactForm from './Component/ContactUs/ContactForm';
 import Queries from './Component/ContactUs/Queries';
-import Project_upload from './Component/Project/Project_upload';
+import ProjectUpload from './Component/Project/ProjectUpload';
 import ProjectList from './Component/Project/ProjectList';
 import Services from './Component/Services/Services';
+import TestimonialForm from './Component/Form/TestimonialForm';
 
 function App() {
-  const [auth , setAuth] = useState("USER");
-  const authentication = (E)=>{
-    setAuth(E);
-  }
-  console.log(auth)
+  const [auth, setAuth] = useState("USER");
+  const [admin, setAdmin] = useState(false);
+  const [status, setStatus] = useState(false);
 
+  const authentication = (E) => {
+    setAuth(E);
+    if (E === "ADMIN") {
+      setAdmin(true);
+    } else {
+      setAdmin(false);
+    }
+  };
+
+  const statusUpdate = (e) => {
+    setStatus(e);
+  };
 
   return (
     <Router>
       <>
-        <NavBar  authentication = {authentication}/>
+        <NavBar authentication={authentication} admin={admin} statusUpdate={statusUpdate} status={status} />
         <Routes>
-          <Route path="/" element={<Home />} />
-          <Route path="/Projects"  element={<ProjectList />}/>
-          <Route path="/About-us" element={<Specialization />} />
-          <Route path="/Admin-Panel" element={<AdminPanel auth= {auth}/>} />
+          <Route exact path="/" element={<Home />} />
+          <Route path="/*" element={<div class="error">
+  <img src={require('./Component/Resources/Images/error.png')} alt="Error" class="error-img" />
+</div> } />
+          <Route path="/Projects" element={<ProjectList />} />
+          {admin && (
+            <>
+              <Route path="/Admin-Panel" element={<AdminPanel auth={auth} />} />
+              <Route path="/Query-panel" element={<Queries />} />
+              <Route path="/Project_add" element={<ProjectUpload />} />
+            </>
+          )}
           <Route path="/Contact-us" element={<ContactForm />} />
-          <Route path="/Queries" element={<Queries  adminAuth={auth}/>} />
-          <Route path="/Project_add" element={<Project_upload />} />
           <Route path="/Services" element={<Services />} />
+          {status ? (
+            <Route path="/Testimonial" element={<TestimonialForm />} />
+          ) : null}
         </Routes>
       </>
     </Router>

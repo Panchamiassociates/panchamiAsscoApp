@@ -1,33 +1,36 @@
+import React, { useEffect, useState } from 'react'
 import axios from 'axios';
-import React, { useEffect, useState } from 'react';
-import Query from './Query';
-import '../Resources/StyleSheets/error.css';
+import '../Resources/StyleSheets/Query.css'
 
-function Queries({ setNumber, adminAuth }) {
-  const [queries, setQueries] = useState([]);
-
-  useEffect(() => {
-    axios.get('http://localhost:3001/api/v1/getQuery').then((res) => {
+function Queries() {
+  const [queries , setQueries] = useState([]);
+  useEffect(()=>{
+    axios.get('http://localhost:3001/api/v1/queries').then(res=>{
       setQueries(res.data.data);
-      setNumber(res.data.data.length);
-    });
-  }, []); // Use an empty dependency array to fetch queries only once
+    }).catch(err=>{
+      console.log("cannot be fetched");
+    })
 
+  })
+
+  const handleDelete = (id)=>{
+    axios.delete(`http://localhost:3001/api/v1/queries/${id}`)
+    alert("deleted successfully");
+  }
   return (
-    <>
-      {adminAuth ? (
-        queries.length > 0 ? (
-          queries.map((query) => (
-            <Query key={query._id} query={query} />
-          ))
-        ) : (
-          <h4 className='error'>No queries to view</h4>
-        )
-      ) : (
-        <h4 className='error'>You must log in as an admin to view this page</h4>
-      )}
-    </>
-  );
+    <div className='query-page'>
+{queries.map(query=>{
+  return <div className='query'>
+      <h4>{query.name}</h4>
+      <p>{query.phoneNumber}</p>
+      <p>{query.email}</p>
+      <p>{query.message}</p>
+      <button className='btn btn-danger query-delete' onClick={()=>handleDelete(query._id)}>delete</button>
+  </div>
+})}
+
+    </div>
+  )
 }
 
-export default Queries;
+export default Queries

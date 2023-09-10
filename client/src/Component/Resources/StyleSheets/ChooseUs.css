@@ -1,11 +1,11 @@
 /* ChooseUs.css */
+
+/* Default styles for larger screens */
 .choose-us-section {
-  padding: 80px 0px;
   background-color: #f9f9f9;
-  margin: 2rem 0rem;
-  padding:  2rem;
   width: 100%;
   margin: auto;
+  padding: 3rem;
 }
 
 .choose-us-title {
@@ -14,27 +14,24 @@
   color: #252525;
   margin: 2rem;
   text-align: left;
-  border-left: 8px solid green;
+  border-left: 0.5rem rgb(212, 177, 3) solid;
   margin-left: 2rem;
 }
-
-
 
 .feature-box {
   background-color: #ffffff;
   border: 1px solid #ddd;
   padding: 30px;
-  margin-bottom: 30px;
+  margin: 2rem;
   text-align: center;
   box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
   transition: transform 0.3s, box-shadow 0.3s;
-  height: 100%; /* Ensure the height covers the content */
+  height: 18rem!important;
   border-radius: 1rem;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
   margin: 1rem;
-  
 }
 
 .feature-box:hover {
@@ -61,11 +58,46 @@
   margin-bottom: 10px; /* Reduce margin for better spacing */
 }
 
-
-.fas{
+.fas {
   pointer-events: none;
 }
 
-.car-body{
-  padding: 1rem;
+.car-body {
+  padding: 2rem;
+}
+
+/* Mobile responsive adjustments */
+@media (max-width: 768px) {
+  .choose-us-section {
+    padding: 2rem;
+  }
+
+  .choose-us-title {
+    font-size: 28px;
+    margin: 1rem;
+    text-align: center;
+    border-left: none;
+    margin-left: 0;
+  }
+
+  .feature-box {
+    padding: 20px;
+    margin: 1rem;
+    height: auto;
+  }
+
+  .feature-icon {
+    font-size: 28px;
+    margin-bottom: 10px;
+  }
+
+  .feature-title {
+    font-size: 20px;
+    margin-bottom: 5px;
+  }
+
+  .feature-description {
+    font-size: 14px;
+    margin-bottom: 5px;
+  }
 }

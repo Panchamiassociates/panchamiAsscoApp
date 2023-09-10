@@ -14,11 +14,11 @@
 .input input{
     border: none;
     border-radius: 0.5rem;
-    background-color: #198754fa;
-    color: aliceblue;
+    background-color: #f6f6f6fa;
+    color: rgb(0, 0, 0);
     padding: 0.5rem 1rem;
 }
 
 .input input::placeholder{
-    color: aliceblue;
+    color: rgb(124, 124, 124);
 }

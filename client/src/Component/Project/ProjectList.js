@@ -32,12 +32,12 @@ function ProjectList() {
       partialVisibilityGutter: 40,
     },
     tablet: {
-      breakpoint: { max: 1024, min: 464 },
+      breakpoint: { max: 1024, min: 735 },
       items: 2,
       partialVisibilityGutter: 30,
     },
     mobile: {
-      breakpoint: { max: 464, min: 0 },
+      breakpoint: { max: 735, min: 0 },
       items: 1,
       partialVisibilityGutter: 10,
     },

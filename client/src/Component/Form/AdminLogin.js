@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import '../Resources/StyleSheets/UserLogin.css';
 import axios from 'axios';
 
-function AdminLogin({authentication}) {
+function AdminLogin({authentication ,statusUpdate}) {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [showToast, setShowToast] = useState(false); // State for showing the toast
@@ -15,15 +15,25 @@ function AdminLogin({authentication}) {
       if (response.status  ===200) {
         alert("successfully logged in")
         if(response.data.role  === "ADMIN"){
-        authentication("ADMIN");
+          authentication("ADMIN");
         }
+
+        
+        if(response.data.status){
+          statusUpdate(true)
+        }
+        else{
+          statusUpdate(false)
+        }
+        
         console.log(response.data.role)
+        console.log(response.data.status)
       }
       else{
         alert("wrong password")
       }
     } catch (error) {
-      alert("wrong credentials");
+     
     }
   };
 
