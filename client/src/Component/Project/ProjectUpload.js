@@ -30,7 +30,7 @@ function ProjectUpload() {
     formData.append('description', description);
 
     try {
-      await axios.post('http://localhost:3001/upload-image', formData);
+      await axios.post('https://panchami-associates-backend.onrender.com/upload-image', formData);
       alert('Project uploaded successfully.');
     } catch (error) {
       console.error('Error uploading project:', error);

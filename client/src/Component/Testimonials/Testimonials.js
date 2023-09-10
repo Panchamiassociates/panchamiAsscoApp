@@ -13,7 +13,7 @@ const TestimonialsComponent = () => {
 
 useEffect(()=>{
   try{
-    axios.get('http://localhost:3001/api/v1/testimonial').then(res=>{
+    axios.get('https://panchami-associates-backend.onrender.com/api/v1/testimonial').then(res=>{
       setTestimonialsData(res.data.data);
       setLoading(false);
     })

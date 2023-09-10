@@ -19,7 +19,7 @@ function ContactForm() {
     e.preventDefault();
 
     try {
-      const response = await axios.post('http://localhost:3001/api/v1/queries', formData);
+      const response = await axios.post('https://panchami-associates-backend.onrender.com/api/v1/queries', formData);
 
       if (response.status === 201) {
         alert('Message submitted successfully!');

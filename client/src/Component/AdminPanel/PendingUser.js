@@ -4,7 +4,7 @@ function PendingUser() {
   const [Users , setUsers] = useState([]);
 
     useEffect(()=>{
-        axios.get('http://localhost:3001/api/v1/user').then(res=>{
+        axios.get('https://panchami-associates-backend.onrender.com/api/v1/user').then(res=>{
             setUsers(res.data.Users)
             console.log(res.data.Users)
         }).catch(err=>{
@@ -14,7 +14,7 @@ function PendingUser() {
 
     const handleApprove = async (userId) => {
       try {
-        const response = await axios.patch(`http://localhost:3001/api/v1/user/${userId}`);
+        const response = await axios.patch(`https://panchami-associates-backend.onrender.com/api/v1/user/${userId}`);
         if (response.status === 200) {
           // Successfully updated the status, you can update the UI accordingly
           // You can also remove the user from the list or update their status in the state
@@ -27,7 +27,7 @@ function PendingUser() {
     };
     const handleDelete = async (userId) => {
       try {
-        const response = await axios.delete(`http://localhost:3001/api/v1/user/${userId}`);
+        const response = await axios.delete(`https://panchami-associates-backend.onrender.com/api/v1/user/${userId}`);
         if (response.status === 200) {
         } else {
           alert("user not found")
@@ -36,7 +36,7 @@ function PendingUser() {
         console.error('Error approving user:', error);
       }
     };
-    const filter = Users.filter(user => user.isActive == false)
+    const filter = Users.filter(user => user.isActive === false)
   return (
     <div className='Pending-user'>
         {filter.length > 0 ?

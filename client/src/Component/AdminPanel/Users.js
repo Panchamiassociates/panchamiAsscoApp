@@ -6,7 +6,7 @@ function Users() {
     const [Users , setUsers] = useState([]);
 
     useEffect(()=>{
-        axios.get('http://localhost:3001/api/v1/user').then(res=>{
+        axios.get('https://panchami-associates-backend.onrender.com/api/v1/user').then(res=>{
             setUsers(res.data.Users)
             console.log(res.data.Users)
         }).catch(err=>{
@@ -15,7 +15,7 @@ function Users() {
     },[Users])
     const handleDelete = async (userId) => {
         try {
-          const response = await axios.delete(`http://localhost:3001/api/v1/user/${userId}`);
+          const response = await axios.delete(`https://panchami-associates-backend.onrender.com/api/v1/user/${userId}`);
           if (response.status === 200) {
           } else {
             alert("user not found")
@@ -24,7 +24,7 @@ function Users() {
           console.error('Error approving user:', error);
         }
       };
-    const filter = Users.filter(user => user.isActive == true)
+    const filter = Users.filter(user => user.isActive === true)
   return (
      <div >
       {filter.length > 0 ?filter.map((user) => {

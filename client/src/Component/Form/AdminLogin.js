@@ -11,7 +11,7 @@ function AdminLogin({authentication ,statusUpdate}) {
     e.preventDefault();
 
     try {
-      const response = await axios.post('http://localhost:3001/api/v1/login ', { email, password });
+      const response = await axios.post('https://panchami-associates-backend.onrender.com/api/v1/login ', { email, password });
       if (response.status  ===200) {
         alert("successfully logged in")
         if(response.data.role  === "ADMIN"){

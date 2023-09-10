@@ -12,7 +12,7 @@ function ProjectList() {
   useEffect(() => {
     async function fetchProjects() {
       try {
-        const response = await axios.get('http://localhost:3001/projects');
+        const response = await axios.get('https://panchami-associates-backend.onrender.com/projects');
         setProjects(response.data.data);
         setLoading(false); // Set loading to false when data is fetched
         console.log(response.data.data)

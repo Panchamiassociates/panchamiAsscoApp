@@ -13,7 +13,7 @@ function UserRegistrationForm() {
     e.preventDefault();
 
     try {
-      const response = await axios.post('http://localhost:3001/api/v1/user', {
+      const response = await axios.post('https://panchami-associates-backend.onrender.com/api/v1/user', {
         username,
         email,
         password,

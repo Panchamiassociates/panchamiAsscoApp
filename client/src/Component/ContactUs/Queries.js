@@ -5,7 +5,7 @@ import '../Resources/StyleSheets/Query.css'
 function Queries() {
   const [queries , setQueries] = useState([]);
   useEffect(()=>{
-    axios.get('http://localhost:3001/api/v1/queries').then(res=>{
+    axios.get('https://panchami-associates-backend.onrender.com/api/v1/queries').then(res=>{
       setQueries(res.data.data);
     }).catch(err=>{
       console.log("cannot be fetched");
@@ -14,7 +14,7 @@ function Queries() {
   })
 
   const handleDelete = (id)=>{
-    axios.delete(`http://localhost:3001/api/v1/queries/${id}`)
+    axios.delete(`https://panchami-associates-backend.onrender.com/api/v1/queries/${id}`)
     alert("deleted successfully");
   }
   return (

@@ -10,7 +10,7 @@ const TestimonialForm = () => {
       e.preventDefault();
   
       try {
-        const response = await axios.post('http://localhost:3001/api/v1/testimonial', {
+        const response = await axios.post('https://panchami-associates-backend.onrender.com/api/v1/testimonial', {
           text,
           author,
         });
