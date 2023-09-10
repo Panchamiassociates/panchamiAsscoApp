@@ -14,8 +14,9 @@
   color: #252525;
   margin: 2rem;
   text-align: left;
-  border-left: 0.5rem rgb(212, 177, 3) solid;
+  border-left: 0.5rem rgb(48, 212, 3) solid;
   margin-left: 2rem;
+  padding: 2rem;
 }
 
 .feature-box {
@@ -26,7 +27,7 @@
   text-align: center;
   box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
   transition: transform 0.3s, box-shadow 0.3s;
-  height: 18rem!important;
+  height: 20rem!important;
   border-radius: 1rem;
   display: flex;
   flex-direction: column;

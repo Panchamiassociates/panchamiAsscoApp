@@ -1,7 +1,6 @@
 import React, { useState } from 'react';
 import './App.css';
 import Home from './Component/Home/Home';
-import Specialization from './Component/Home/Specialization';
 import NavBar from './Component/NavBar';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import AdminPanel from './Component/AdminPanel/AdminPanel';

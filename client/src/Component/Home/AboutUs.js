@@ -4,7 +4,7 @@ import '../Resources/StyleSheets/About_us.css'; // Import your CSS file for styl
 const AboutUs = () => {
   return (
     <div className='about-us'>
-    <div className='container'>
+    <div className='p-5'>
       <div className='row'>
         <div className='col-lg-6 img'>
           <img src={require('../Resources/Images/Home-About.png')} alt='About Us' className='about-us-img' />

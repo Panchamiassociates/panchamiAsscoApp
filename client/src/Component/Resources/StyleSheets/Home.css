@@ -1,5 +1,5 @@
 .intro-page {
-  padding: 3rem 0;
+  /* padding: 3rem 0; */
   background: radial-gradient(#ffff, #a0fdff);
 }
 
@@ -8,6 +8,7 @@
   flex-direction: column;
   align-items: center;
   text-align: center;
+  padding: 3rem;
 }
 
 .WORDS{
@@ -33,6 +34,10 @@
   align-items: center;
 }
 
+
+.containers{
+  margin: auto;
+}
 
 /* about us */
 
