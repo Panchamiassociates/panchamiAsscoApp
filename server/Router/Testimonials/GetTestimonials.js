@@ -2,7 +2,7 @@ const Testimonial  = require('../../Model/Testimonial')
 
 module.exports = GetTestimonials = async (req, res) => {
     try {
-      const testimonials = await Testimonial.find();
+      const testimonials = await Testimonial.find().limit(6);
       if (testimonials.length === 0) {
         return res.status(404).json({
           message: 'No testimonials found.',
