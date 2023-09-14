@@ -5,7 +5,7 @@
   margin: 1rem;
 }
 *{
-  user-drag: none;
+    user-drag: none;
     -webkit-user-drag: none;
     user-select: none;
     -moz-user-select: none;
@@ -26,9 +26,22 @@
 
 /* Style for individual project cards */
 .project-item {
-  /* background: linear-gradient(rgb(254, 255, 255),rgb(215, 237, 247),rgb(194, 236, 255),rgb(166, 227, 255),rgb(157, 234, 255)); */
-  /* background: linear-gradient(rgb(251, 243, 233), rgb(255, 234, 197), rgb(255, 222, 162), rgb(255, 199, 110), rgb(252, 175, 74)); */
-  background: linear-gradient( rgb(179, 250, 199), rgb(217, 255, 217), rgb(198, 255, 198), rgb(154, 255, 154), rgb(144, 255, 144), rgb(101, 255, 101),rgb(2, 255, 48));
+  /* background: linear-gradient(
+    to bottom, 
+    #007BFF, 
+    #0091FF, 
+    #00A9FF, 
+    #00BFFF, 
+    #00D0FF, 
+    #42DDFF, 
+    #7CE7FF, 
+    #B6F2FF, 
+    #E0FBFF
+  ); */
+  background: linear-gradient(
+  
+  #C7FFFF
+);
 
 
 
@@ -44,7 +57,8 @@
   flex-direction: column;
   justify-content: space-between;
   align-items: center;
-  margin: 1rem 0;
+  margin: 1rem 0; 
+  height: auto!important;
 }
 
 .project-item:hover {

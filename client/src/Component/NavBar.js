@@ -7,7 +7,8 @@ import UserRegistration from './Form/UserRegistration';
 function NavBar({ authentication, admin, statusUpdate, status }) {
   const handleSignOut = ()=>{
     authentication(false);
-    statusUpdate(false)
+    statusUpdate(false);
+    window.location.href = '/'
   }
   return (
     <>
@@ -28,7 +29,7 @@ function NavBar({ authentication, admin, statusUpdate, status }) {
                 <Link className="nav-link text-light" to="/Projects">Projects</Link>
               </li>
               <li className="nav-item">
-                <Link className="nav-link text-light" to="/Services">Service</Link>
+                <Link className="nav-link text-light" to="/Services">Services</Link>
               </li>
               {!admin && <li className="nav-item">
                 <Link className="nav-link text-light" to="/Contact-us">Contact us</Link>

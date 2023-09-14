@@ -30,7 +30,7 @@ function App() {
   };
 
   return (
-    <Router>
+    <Router basename='/'>
       <>
         <NavBar authentication={authentication} admin={admin} statusUpdate={statusUpdate} status={status} />
         <Routes>

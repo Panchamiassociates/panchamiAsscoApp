@@ -62,11 +62,12 @@ function renderLoadingSkeletons() {
 
 return (
   <div className="project-list">
+    {testimonialsData.length > 0 ? <div>
     <h2 className="Ongoing-projects">Look what our past customers have to say about us</h2>
     {loading ? (
       <div className="loading-skeletons">{renderLoadingSkeletons()}</div>
-    ) : (
-      <Carousel responsive={carouselResponsive} removeArrowOnDeviceType={['tablet', 'mobile']}>
+      ) : (
+        <Carousel responsive={carouselResponsive} removeArrowOnDeviceType={['tablet', 'mobile']}>
         {testimonialsData.map((project) => (
           <div key={project._id} className="test-item">
             <h3>{project.text}</h3>
@@ -75,6 +76,7 @@ return (
         ))}
       </Carousel>
     )}
+    </div> : <></>}
   </div>
 );
 }

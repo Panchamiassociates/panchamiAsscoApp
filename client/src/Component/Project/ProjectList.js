@@ -76,8 +76,6 @@ function ProjectList() {
                 alt="Project"
                 className="img_proj"
               />
-              <h3>{project.title}</h3>
-              <p>{project.description}</p>
             </div>
           ))}
         </Carousel>
